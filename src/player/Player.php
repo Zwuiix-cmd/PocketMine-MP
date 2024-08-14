@@ -113,6 +113,7 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\PlayerMetadataFlags;
+use pocketmine\network\PacketHandlingException;
 use pocketmine\permission\DefaultPermissionNames;
 use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\PermissibleBase;
@@ -170,6 +171,8 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 
 	private const MOVES_PER_TICK = 2;
 	private const MOVE_BACKLOG_SIZE = 100 * self::MOVES_PER_TICK; //100 ticks backlog (5 seconds)
+
+	private const MAX_FORM_RESPONSE_DEPTH = 2; //modal/simple will be 1, custom forms 2 - they will never contain anything other than string|int|float|bool|null
 
 	/** Max length of a chat message (UTF-8 codepoints, not bytes) */
 	private const MAX_CHAT_CHAR_LENGTH = 512;
@@ -2133,10 +2136,22 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 		}
 	}
 
-	public function onFormSubmit(int $formId, mixed $responseData) : bool{
+	public function onFormSubmit(int $formId, mixed $formData) : bool{
 		if(!isset($this->forms[$formId])){
-			$this->logger->debug("Got unexpected response for form $formId");
+			$this->logger->debug(sprintf("Got unexpected response for form %s", $formId));
 			return false;
+		}
+
+		$formDataLength = strlen($formData);
+		if($formDataLength > self::MAX_CHAT_BYTE_LENGTH) {
+			$this->logger->debug(sprintf("Form response too big (%s bytes)", $formDataLength));
+			return false;
+		}
+
+		try{
+			$responseData = json_decode($formData, true, self::MAX_FORM_RESPONSE_DEPTH, JSON_THROW_ON_ERROR);
+		}catch(\JsonException $e){
+			throw PacketHandlingException::wrap($e, "Failed to decode form response data");
 		}
 
 		try{

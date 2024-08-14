@@ -130,8 +130,6 @@ use const JSON_THROW_ON_ERROR;
  * This handler handles packets related to general gameplay.
  */
 class InGamePacketHandler extends PacketHandler{
-	private const MAX_FORM_RESPONSE_DEPTH = 2; //modal/simple will be 1, custom forms 2 - they will never contain anything other than string|int|float|bool|null
-
 	protected float $lastRightClickTime = 0.0;
 	protected ?UseItemTransactionData $lastRightClickData = null;
 
@@ -976,12 +974,7 @@ class InGamePacketHandler extends PacketHandler{
 			//TODO: make APIs for this to allow plugins to use this information
 			return $this->player->onFormSubmit($packet->formId, null);
 		}elseif($packet->formData !== null){
-			try{
-				$responseData = json_decode($packet->formData, true, self::MAX_FORM_RESPONSE_DEPTH, JSON_THROW_ON_ERROR);
-			}catch(\JsonException $e){
-				throw PacketHandlingException::wrap($e, "Failed to decode form response data");
-			}
-			return $this->player->onFormSubmit($packet->formId, $responseData);
+			return $this->player->onFormSubmit($packet->formId, $packet->formData);
 		}else{
 			throw new PacketHandlingException("Expected either formData or cancelReason to be set in ModalFormResponsePacket");
 		}
