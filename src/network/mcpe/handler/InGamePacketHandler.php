@@ -29,6 +29,7 @@ use pocketmine\block\tile\Sign;
 use pocketmine\block\utils\SignText;
 use pocketmine\entity\animation\ConsumingItemAnimation;
 use pocketmine\entity\Attribute;
+use pocketmine\entity\Consumable;
 use pocketmine\entity\InvalidSkinException;
 use pocketmine\event\player\PlayerEditBookEvent;
 use pocketmine\inventory\transaction\action\DropItemAction;
@@ -36,6 +37,7 @@ use pocketmine\inventory\transaction\InventoryTransaction;
 use pocketmine\inventory\transaction\TransactionBuilder;
 use pocketmine\inventory\transaction\TransactionCancelledException;
 use pocketmine\inventory\transaction\TransactionValidationException;
+use pocketmine\item\ConsumableItem;
 use pocketmine\item\VanillaItems;
 use pocketmine\item\WritableBook;
 use pocketmine\item\WritableBookPage;
@@ -44,6 +46,7 @@ use pocketmine\math\Facing;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\StringTag;
+use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\InventoryManager;
 use pocketmine\network\mcpe\NetworkSession;
 use pocketmine\network\mcpe\protocol\ActorEventPacket;
@@ -305,9 +308,15 @@ class InGamePacketHandler extends PacketHandler{
 		switch($packet->eventId){
 			case ActorEvent::EATING_ITEM: //TODO: ignore this and handle it server-side
 				$item = $this->player->getInventory()->getItemInHand();
-				if($item->isNull()){
+				if(!$item instanceof Consumable){
 					return false;
 				}
+
+				[$netId, $netData] = TypeConverter::getInstance()->getItemTranslator()->toNetworkId($item);
+				if($packet->eventData != (($netId << 16) | $netData)) {
+					return false;
+				}
+
 				$this->player->broadcastAnimation(new ConsumingItemAnimation($this->player, $this->player->getInventory()->getItemInHand()));
 				break;
 			default:
