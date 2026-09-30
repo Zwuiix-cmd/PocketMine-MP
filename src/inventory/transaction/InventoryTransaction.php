@@ -124,8 +124,9 @@ class InventoryTransaction{
 	}
 
 	/**
-	 * @param Item[] $needItems
-	 * @param Item[] $haveItems
+	 * @param Item[]                 $needItems
+	 * @param Item[]                 $haveItems
+	 *
 	 * @phpstan-param-out list<Item> $needItems
 	 * @phpstan-param-out list<Item> $haveItems
 	 *
@@ -224,7 +225,8 @@ class InventoryTransaction{
 	}
 
 	/**
-	 * @param SlotChangeAction[] $possibleActions
+	 * @param SlotChangeAction[]                   $possibleActions
+	 *
 	 * @phpstan-param array<int, SlotChangeAction> $possibleActions
 	 */
 	protected function findResultItem(Item $needOrigin, array $possibleActions) : ?Item{

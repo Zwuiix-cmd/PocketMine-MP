@@ -35,8 +35,9 @@ class ItemLockTransactionTest extends TestCase{
 
 	private function createPlayer() : Player{
 		return new class extends Player{
-			public function __construct(){}
-			public function __destruct(){}
+			public function __construct(){ }
+
+			public function __destruct(){ }
 		};
 	}
 
