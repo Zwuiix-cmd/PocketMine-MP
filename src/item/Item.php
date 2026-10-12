@@ -112,11 +112,9 @@ class Item implements \JsonSerializable{
 	 *
 	 * NOTE: This should NOT BE USED for creating items to set into an inventory. Use VanillaItems for that
 	 * purpose.
-	 *
-	 * @param string[] $enchantmentTags
-	 *
 	 * @see VanillaItems
 	 *
+	 * @param string[] $enchantmentTags
 	 */
 	public function __construct(
 		private ItemIdentifier $identifier,
@@ -491,11 +489,11 @@ class Item implements \JsonSerializable{
 	/**
 	 * Returns tags that represent the type of item being enchanted and are used to determine
 	 * what enchantments can be applied to this item during in-game enchanting (enchanting table, anvil, fishing, etc.).
-	 * @return string[]
+	 * @see ItemEnchantmentTags
 	 * @see ItemEnchantmentTagRegistry
 	 * @see AvailableEnchantmentRegistry
 	 *
-	 * @see ItemEnchantmentTags
+	 * @return string[]
 	 */
 	public function getEnchantmentTags() : array{
 		return $this->enchantmentTags;
@@ -685,7 +683,6 @@ class Item implements \JsonSerializable{
 	 * Called when a player uses the item to interact with entity, for example by using a name tag.
 	 *
 	 * @param Vector3 $clickVector The exact position of the click (absolute coordinates)
-	 *
 	 * @return bool whether some action took place
 	 */
 	public function onInteractEntity(Player $player, Entity $entity, Vector3 $clickVector) : bool{
@@ -716,7 +713,7 @@ class Item implements \JsonSerializable{
 	/**
 	 * Compares an Item to this Item and check if they match.
 	 *
-	 * @param bool $checkDamage @deprecated
+	 * @param bool $checkDamage   @deprecated
 	 * @param bool $checkCompound Whether to verify that the items' NBT match.
 	 */
 	final public function equals(Item $item, bool $checkDamage = true, bool $checkCompound = true) : bool{
