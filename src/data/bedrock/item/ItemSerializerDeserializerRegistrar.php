@@ -193,6 +193,7 @@ final class ItemSerializerDeserializerRegistrar{
 		$this->map1to1Item(Ids::BOW, Items::BOW());
 		$this->map1to1Item(Ids::BOWL, Items::BOWL());
 		$this->map1to1Item(Ids::BREAD, Items::BREAD());
+		$this->map1to1Item(Ids::BREEZE_ROD, Items::BREEZE_ROD());
 		$this->map1to1Item(Ids::BRICK, Items::BRICK());
 		$this->map1to1Item(Ids::BROWN_EGG, Items::BROWN_EGG());
 		$this->map1to1Item(Ids::BUCKET, Items::BUCKET());
