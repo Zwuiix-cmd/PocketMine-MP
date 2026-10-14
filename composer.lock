@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cdb9eb338ef0e90a1f918a4ec50579a",
+    "content-hash": "53060be2469d51e270ebb14788b1184e",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -145,16 +145,16 @@
         },
         {
             "name": "axolotl-pm/bedrock-protocol",
-            "version": "63.0.0+bedrock-1.26.50",
+            "version": "63.0.1+bedrock-1.26.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/axolotl-pm/BedrockProtocol.git",
-                "reference": "144de51f61dc2b8e1638ecf5f12de34fc0c8b05a"
+                "reference": "7ff605d5b071d46c694d2b71bc8af4514156dbc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/144de51f61dc2b8e1638ecf5f12de34fc0c8b05a",
-                "reference": "144de51f61dc2b8e1638ecf5f12de34fc0c8b05a",
+                "url": "https://api.github.com/repos/axolotl-pm/BedrockProtocol/zipball/7ff605d5b071d46c694d2b71bc8af4514156dbc2",
+                "reference": "7ff605d5b071d46c694d2b71bc8af4514156dbc2",
                 "shasum": ""
             },
             "require": {
@@ -186,9 +186,9 @@
             "description": "An implementation of the Minecraft: Bedrock Edition protocol in PHP",
             "support": {
                 "issues": "https://github.com/axolotl-pm/BedrockProtocol/issues",
-                "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/63.0.0+bedrock-1.26.50"
+                "source": "https://github.com/axolotl-pm/BedrockProtocol/tree/63.0.1+bedrock-1.26.50"
             },
-            "time": "2026-10-14T17:40:33+00:00"
+            "time": "2026-10-14T20:41:43+00:00"
         },
         {
             "name": "axolotl-pm/xoroshiro128pp",
