@@ -66,7 +66,6 @@ final class VanillaItems{
 	private static Bow $_mBOW;
 	private static Bowl $_mBOWL;
 	private static Bread $_mBREAD;
-	private static Item $_mBREEZE_ROD;
 	private static Item $_mBRICK;
 	private static Egg $_mBROWN_EGG;
 	private static Bucket $_mBUCKET;
@@ -427,7 +426,6 @@ final class VanillaItems{
 			"bow" => fn(Bow $v) => self::$_mBOW = $v,
 			"bowl" => fn(Bowl $v) => self::$_mBOWL = $v,
 			"bread" => fn(Bread $v) => self::$_mBREAD = $v,
-			"breeze_rod" => fn(Item $v) => self::$_mBREEZE_ROD = $v,
 			"brick" => fn(Item $v) => self::$_mBRICK = $v,
 			"brown_egg" => fn(Egg $v) => self::$_mBROWN_EGG = $v,
 			"bucket" => fn(Bucket $v) => self::$_mBUCKET = $v,
@@ -902,11 +900,6 @@ final class VanillaItems{
 	public static function BREAD() : Bread{
 		if(!isset(self::$_mBREAD)){ self::init(); }
 		return clone self::$_mBREAD;
-	}
-
-	public static function BREEZE_ROD() : Item{
-		if(!isset(self::$_mBREEZE_ROD)){ self::init(); }
-		return clone self::$_mBREEZE_ROD;
 	}
 
 	public static function BRICK() : Item{
