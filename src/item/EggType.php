@@ -23,19 +23,7 @@ declare(strict_types=1);
 
 namespace pocketmine\item;
 
-use pocketmine\utils\LegacyEnumShimTrait;
-
-/**
- * TODO: These tags need to be removed once we get rid of LegacyEnumShimTrait (PM6)
- *   These are retained for backwards compatibility only.
- *
- * @method static EggType BLUE()
- * @method static EggType BROWN()
- * @method static EggType EGG()
- */
 enum EggType{
-	use LegacyEnumShimTrait;
-
 	case BLUE;
 	case BROWN;
 	case NORMAL;

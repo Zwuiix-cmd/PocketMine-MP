@@ -79,7 +79,6 @@ class Egg extends Throwable{
 	 */
 	public function setEggType(EggType $eggType) : void{
 		$this->eggType = $eggType;
-		$this->networkPropertiesDirty = true;
 	}
 
 	//TODO: spawn chickens on collision
