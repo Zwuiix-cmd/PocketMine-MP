@@ -3,10 +3,7 @@
 		<!--[if IE]>
 			<img src="https://github.com/axolotl-pm/PocketMine-MP/blob/stable/.github/readme/pocketmine.png" alt="The PocketMine-MP logo" title="PocketMine" loading="eager" />
 		<![endif]-->
-		<picture>
-			<source srcset="https://raw.githubusercontent.com/axolotl-pm/PocketMine-MP/stable/.github/readme/pocketmine-dark-rgb.gif" media="(prefers-color-scheme: dark)">
-			<img src="https://raw.githubusercontent.com/axolotl-pm/PocketMine-MP/stable/.github/readme/pocketmine-rgb.gif" loading="eager" />
-		</picture>
+		<img src="https://raw.githubusercontent.com/axolotl-pm/PocketMine-MP/stable/.github/readme/pocketmine-axolotl-wordmark.svg" alt="PocketMine-MP" loading="eager" />
 	</a><br>
 	<b>A highly customisable, open source server software for Minecraft: Bedrock Edition written in PHP</b>
 </p>
