@@ -39,7 +39,6 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * @method static LeavesType MANGROVE()
  * @method static LeavesType OAK()
  * @method static LeavesType ORANGE_POPLAR()
- * @method static LeavesType PALE_OAK()
  * @method static LeavesType RED_POPLAR()
  * @method static LeavesType SPRUCE()
  * @method static LeavesType YELLOW_POPLAR()

@@ -1167,6 +1167,8 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("stripped_mangrove_wood", fn() => Blocks::MANGROVE_WOOD()->setStripped(true));
 		$result->registerBlock("stripped_oak_log", fn() => Blocks::OAK_LOG()->setStripped(true));
 		$result->registerBlock("stripped_oak_wood", fn() => Blocks::OAK_WOOD()->setStripped(true));
+		$result->registerBlock("stripped_poplar_log", fn() => Blocks::POPLAR_LOG()->setStripped(true));
+		$result->registerBlock("stripped_poplar_wood", fn() => Blocks::POPLAR_WOOD()->setStripped(true));
 		$result->registerBlock("stripped_pale_oak_log", fn() => Blocks::PALE_OAK_LOG()->setStripped(true));
 		$result->registerBlock("stripped_pale_oak_wood", fn() => Blocks::PALE_OAK_WOOD()->setStripped(true));
 		$result->registerBlock("stripped_spruce_log", fn() => Blocks::SPRUCE_LOG()->setStripped(true));
