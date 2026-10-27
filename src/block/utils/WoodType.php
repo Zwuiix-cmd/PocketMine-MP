@@ -37,8 +37,6 @@ use pocketmine\utils\LegacyEnumShimTrait;
  * @method static WoodType JUNGLE()
  * @method static WoodType MANGROVE()
  * @method static WoodType OAK()
- * @method static WoodType PALE_OAK()
- * @method static WoodType POPLAR()
  * @method static WoodType SPRUCE()
  * @method static WoodType WARPED()
  */
